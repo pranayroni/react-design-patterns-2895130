@@ -1,3 +1,11 @@
+import { RegularList } from "./RegularList";
+import { SmallPersonListItem} from './people/SmallPersonListItem'
+import { LargePersonListItem } from './people/LargePersonListItem'
+import { SmallProductListItem } from "./products/SmallProductListItem";
+import { LargeProductListItem } from "./products/LargeProductListItem";
+import { NumberedList } from "./NumberedList";
+import { Modal } from "./Modal";
+
 const people = [{
 	name: 'John Doe',
 	age: 54,
@@ -34,7 +42,46 @@ const products = [{
 
 function App() {
 	return (
-		<h1>Your code goes here</h1>
+    <>
+    <Modal>
+        <LargeProductListItem
+        product={products[0]}
+        />
+      </Modal>
+    <h1>Small Person List</h1>
+		<RegularList
+      items ={people}
+      resourceName="person"
+      itemComponent={SmallPersonListItem} />
+    <hr />
+    <h1>Large Person List</h1>
+		<RegularList
+      items ={people}
+      resourceName="person"
+      itemComponent={LargePersonListItem} />
+      <hr />
+    <h1>Small Product List</h1>
+		<RegularList
+      items ={products}
+      resourceName="product"
+      itemComponent={SmallProductListItem} />
+      <hr />
+    <h1>Large Product List</h1>
+		<RegularList
+      items ={products}
+      resourceName="product"
+      itemComponent={LargeProductListItem} />
+      <hr />
+    <h1>Large Numbered Product List</h1>
+		<NumberedList
+      items ={products}
+      resourceName="product"
+      itemComponent={LargeProductListItem} />
+      <hr />
+
+
+      
+    </>
 	);
 }
 
